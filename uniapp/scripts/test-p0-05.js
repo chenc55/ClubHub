@@ -8,6 +8,7 @@
  */
 'use strict'
 const path = require('path')
+process.env.CLUBHUB_JWT_SECRET = 'clubhub-offline-test-fixture-only'
 
 // 公共模块可解析：NODE_PATH 指向 cloudfunctions/common
 process.env.NODE_PATH = path.join(__dirname, '..', 'uniCloud-aliyun', 'cloudfunctions', 'common')

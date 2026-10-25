@@ -67,18 +67,7 @@ async function touchActive(userId) {
 async function resolveOpenid(body) {
   const code = body.code.trim()
   const h5 = body.platform === 'h5-wechat'
-  // 开发测试登录通道（非需求功能）：环境变量 TEST_CODE2OPENID 配置逗号分隔的 `code:openid` 映射，
-  // 命中即返回映射 openid，用于未配置微信凭据（E-01/E-02）时 H5 客户端登录联调；
-  // 不配置该变量时本分支全跳过，线上行为与之前完全一致。
-  const testMap = (process.env.TEST_CODE2OPENID || '').trim()
-  if (testMap) {
-    for (const entry of testMap.split(',')) {
-      const [testCode, testOpenid] = entry.split(':').map((s) => (s || '').trim())
-      if (testCode && testOpenid && code === testCode) {
-        return { openid: testOpenid }
-      }
-    }
-  }
+  // 公开交付版云函数只接受微信换取的身份；本地演示登录由 demo/server.cjs 独立处理。
   const appid = h5 ? process.env.H5_WECHAT_APPID : process.env.WX_APPID
   const secret = h5 ? process.env.H5_WECHAT_SECRET : process.env.WX_SECRET
 

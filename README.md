@@ -6,6 +6,8 @@
 
 [观看 60 秒演示](docs/media/clubhub-demo-60s.mp4) · [本地运行](docs/RUNNING.md) · [验证记录](docs/VALIDATION.md)
 
+安全状态与未关闭的依赖告警见[安全复核记录](docs/SECURITY-REVIEW.md)。仓库用于源码和本地演示展示，当前不满足生产安全验收。
+
 ![ClubHub 项目演示封面](docs/media/cover.png)
 
 ## 功能与角色

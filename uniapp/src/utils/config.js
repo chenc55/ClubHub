@@ -16,7 +16,7 @@ export const APP_CONFIG = {
   H5_WECHAT_APPID: '',
   H5_OAUTH_REDIRECT: '',
   // H5 开发测试登录（无微信凭据联调用，非需求功能）：置 true 后登录页显示「开发测试登录」按钮，
-  // 以 TEST_LOGIN_CODE 走云端 TEST_CODE2OPENID 映射登录；生产 build 前必须改回 false。
+  // 仅配合本机 demo/server.cjs 使用；公开版云函数不支持测试身份映射。
   ENABLE_TEST_LOGIN: import.meta.env.VITE_ENABLE_TEST_LOGIN === 'true',
   TEST_LOGIN_CODE: 'devtest',
   // 请求超时时间（ms）

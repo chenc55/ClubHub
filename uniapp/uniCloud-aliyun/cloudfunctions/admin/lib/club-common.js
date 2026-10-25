@@ -87,9 +87,8 @@ function defaultMessage(code) {
  * JWT 双通道鉴权（无状态，不落库存字段；密钥生产环境必须改为环境变量）
  * ============================================================ */
 function jwtSecret() {
-  // 无 SDK 的离线脚本保留开发密钥；云端缺少配置时拒绝签发和校验。
+  // 离线测试也必须显式提供测试密钥，禁止回退到公开的默认值。
   if (process.env.CLUBHUB_JWT_SECRET) return process.env.CLUBHUB_JWT_SECRET
-  if (typeof uniCloud === 'undefined') return 'clubhub-dev-secret-2026'
   throw new Error('CLUBHUB_JWT_SECRET is required')
 }
 const TOKEN_TYPES = {

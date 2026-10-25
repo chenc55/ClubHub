@@ -4,6 +4,7 @@
  */
 'use strict'
 const path = require('path')
+process.env.CLUBHUB_JWT_SECRET = 'clubhub-offline-test-fixture-only'
 process.env.NODE_PATH = path.join(__dirname, '..', 'uniCloud-aliyun', 'cloudfunctions', 'common')
 require('module').Module._initPaths()
 

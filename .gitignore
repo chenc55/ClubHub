@@ -10,3 +10,16 @@ unpackage/
 .hbuilderx/
 .recordings/
 .local-tools/
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.sqlite
+*.sqlite3
+*.sql
+*.dump
+*credentials*.json
+*service-account*.json
+*.mp4.bak

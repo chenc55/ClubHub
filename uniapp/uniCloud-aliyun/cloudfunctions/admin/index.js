@@ -261,8 +261,10 @@ function randomCode(length = 4) {
 
 /** 答案哈希：加服务端密钥，避免票据被离线暴力枚举（4 位字符空间很小） */
 function answerDigest(code) {
+  const secret = process.env.CLUBHUB_JWT_SECRET
+  if (!secret) throw new Error('CLUBHUB_JWT_SECRET is required')
   return crypto
-    .createHmac('sha256', process.env.CLUBHUB_JWT_SECRET || 'clubhub-dev-secret-2026')
+    .createHmac('sha256', secret)
     .update(String(code).toUpperCase())
     .digest('hex')
 }

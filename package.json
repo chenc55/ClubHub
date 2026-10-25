@@ -7,6 +7,7 @@
     "demo": "node demo/start.cjs",
     "demo:api": "node demo/server.cjs",
     "test:offline": "node demo/test-offline.cjs",
+    "test:security": "node demo/security-check.cjs",
     "record": "node demo/record.cjs"
   },
   "engines": { "node": ">=20" },

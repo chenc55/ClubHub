@@ -25,7 +25,7 @@ npm run test:offline
 2. 上传 schema、索引、业务云函数与已同步的公共模块。
 3. 按各域路由配置 URL 化入口；为前端设置自己的 `VITE_API_BASE`。
 4. 云端配置共享 `CLUBHUB_JWT_SECRET`、自己的微信 AppID / Secret 和需要的通知模板变量。变量读取位置以源码 `process.env` 为准，禁止把服务端密钥放入前端。
-5. 学生端真实环境使用 `VITE_ENABLE_TEST_LOGIN=false`，云端关闭 `TEST_CODE2OPENID` 测试映射。
+5. 学生端真实环境使用 `VITE_ENABLE_TEST_LOGIN=false`。公开版云函数已经移除 `TEST_CODE2OPENID` 测试映射，即使误配环境变量也不会启用。
 6. 活动与招新的定时触发器保留原来的暂停设置，需要自行配置并验证时间驱动的状态流转。
 
 本地 `demo/server.cjs` 是合成数据展示适配器，不是 uniCloud 模拟运行器，不应部署为后端服务。
