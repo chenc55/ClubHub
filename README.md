@@ -6,7 +6,7 @@
 
 [观看 60 秒演示](docs/media/clubhub-demo-60s.mp4) · [本地运行](docs/RUNNING.md) · [验证记录](docs/VALIDATION.md)
 
-安全状态与未关闭的依赖告警见[安全复核记录](docs/SECURITY-REVIEW.md)。仓库用于源码和本地演示展示，当前不满足生产安全验收。
+安全状态见[安全复核记录](docs/SECURITY-REVIEW.md)。本次依赖修复后，三个锁文件的 npm 审计均为 0 告警；升级及回归范围见[依赖修复记录](docs/DEPENDENCY-REMEDIATION.md)。仓库用于源码和本地演示展示，云端及真机验收仍需独立完成。
 
 ![ClubHub 项目演示封面](docs/media/cover.png)
 

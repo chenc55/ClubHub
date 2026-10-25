@@ -22,9 +22,12 @@ npm run demo
 npm run build --prefix admin
 npm run build:h5 --prefix uniapp
 npm run test:offline
+npm run test:security
 ```
 
 云函数无需部署即可运行现有离线脚本。测试使用数据库 stub 和测试密钥，结果不能替代 uniCloud 实例与真机验收。测试记录写入被 Git 忽略的 `.recordings/offline-tests.json`。
+
+依赖升级后的浏览器回归可执行 `npm ci`、`npx playwright install chromium`、`npm run test:browser`。脚本会自行启动并关闭三个本地服务，请先关闭已占用 4175、5173、5174 端口的演示进程。测试覆盖合成数据报名/审核及 Excel 导入，不调用原云空间。
 
 ## 3. 复录演示
 
