@@ -1,0 +1,49 @@
+{
+  "bsonType": "object",
+  "description": "account_deletion_requests（账号注销 / 个人数据删除申请）：学生端站内提交，管理端人工处理（需求 8.4）；通过后 users 软删 + 个人可识别字段匿名化（P3-02）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "申请 ID"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "申请人 users._id"
+    },
+    "reason": {
+      "bsonType": "string",
+      "description": "注销理由（选填）"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["pending", "approved", "rejected"],
+      "description": "状态：pending 待处理 / approved 已通过（用户已注销）/ rejected 已驳回"
+    },
+    "review_by": {
+      "bsonType": "string",
+      "description": "处理管理员（用户名）"
+    },
+    "review_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "处理时间"
+    },
+    "reject_reason": {
+      "bsonType": "string",
+      "description": "驳回理由（status=rejected 必填）"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "提交时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["user_id", "status", "created_at", "deleted"]
+}

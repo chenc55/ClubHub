@@ -1,0 +1,40 @@
+{
+  "bsonType": "object",
+  "description": "whitelist（花名册白名单）：学号认证比对数据源，由 P1-01 Excel 导入产生",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "白名单记录 ID"
+    },
+    "student_no": {
+      "bsonType": "string",
+      "description": "学号，唯一索引"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "姓名"
+    },
+    "college": {
+      "bsonType": "string",
+      "description": "学院"
+    },
+    "major": {
+      "bsonType": "string",
+      "description": "专业"
+    },
+    "batch_no": {
+      "bsonType": "string",
+      "description": "导入批次号"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "导入时间"
+    }
+  },
+  "required": ["student_no", "name", "created_at"]
+}

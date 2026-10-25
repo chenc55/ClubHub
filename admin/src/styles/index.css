@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- 全局基础 ---------- */
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f8f9ff;
+  color: #0f172a;
+  font-family: 'PingFang SC', 'HarmonyOS Sans', 'Microsoft YaHei', sans-serif;
+  overscroll-behavior: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Material Symbols 图标统一（对照设计稿 FILL 0, wght 500, opsz 24） ---------- */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 24;
+  user-select: none;
+}
+
+/* ---------- 孟菲斯组件工具类（design.md 2.3） ---------- */
+@layer components {
+  /* 卡：白底 + 2px 黑描边 + 硬投影 + 按压微动 */
+  .m-card {
+    @apply bg-card rounded-xl border-2 border-memphis-dark shadow-memphis-md;
+  }
+
+  /* 按压微动（位移 + 投影收窄） */
+  .m-pressable {
+    @apply transition-all;
+  }
+  .m-pressable:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px #0f172a;
+  }
+  .m-pressable:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px #0f172a;
+  }
+
+  /* 表格铁律（design.md 3.3）：表头不折行 + 单元格水平单行 */
+  .tbl-nowrap {
+    white-space: nowrap;
+  }
+  /* 复杂表格横向最小安全宽度 */
+  .tbl-scroll {
+    overflow-x: auto;
+    min-width: 100%;
+  }
+  .tbl-scroll > table {
+    min-width: 1280px;
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "bsonType": "object",
+  "description": "club_posts（社团动态）：先发后审；flagged 为敏感词命中「疑似」标记（送审队列），下架用 deleted 统一软删除",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "动态 ID"
+    },
+    "club_id": {
+      "bsonType": "string",
+      "description": "所属社团 ID"
+    },
+    "author_id": {
+      "bsonType": "string",
+      "description": "发布人 user_id（负责人端发布写入，P2-01 补充：CLB-02「我的动态列表」按发布者过滤）"
+    },
+    "content": {
+      "bsonType": "string",
+      "description": "正文"
+    },
+    "images": {
+      "bsonType": "array",
+      "description": "图片 URL 列表"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["published", "taken_down"],
+      "description": "状态：published 已发布 / taken_down 已下架（删除统一用 deleted 标志）"
+    },
+    "flagged": {
+      "bsonType": "bool",
+      "description": "敏感词命中「疑似」标记（先发后审送审队列）"
+    },
+    "published_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "发布时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["club_id", "content", "status", "deleted"]
+}

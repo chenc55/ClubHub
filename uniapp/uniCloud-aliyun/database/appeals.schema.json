@@ -1,0 +1,66 @@
+{
+  "bsonType": "object",
+  "description": "appeals（换绑申诉）：同用户同时间仅一条 status=pending（业务规则 7.3）；appeal_type 区分换绑/占用申诉",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "申诉 ID"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "申请人用户 ID"
+    },
+    "appeal_type": {
+      "bsonType": "string",
+      "enum": ["rebind", "occupy"],
+      "description": "类型：rebind 换绑 / occupy 学号被他人占用申诉"
+    },
+    "old_student_no": {
+      "bsonType": "string",
+      "description": "旧学号（occupy 类为空）"
+    },
+    "new_student_no": {
+      "bsonType": "string",
+      "description": "新学号"
+    },
+    "proof": {
+      "bsonType": "string",
+      "description": "证明说明（文字）"
+    },
+    "proof_images": {
+      "bsonType": "array",
+      "description": "证明材料图片 URL 列表（≤3 张，对应 2.6 的 appeal_proof 场景）"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["pending", "approved", "rejected"],
+      "description": "状态：pending / approved / rejected"
+    },
+    "reject_reason": {
+      "bsonType": "string",
+      "description": "驳回理由（status = rejected 时必填，需求 4.3.5）"
+    },
+    "review_by": {
+      "bsonType": "string",
+      "description": "审核人"
+    },
+    "review_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "审核时间"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["user_id", "appeal_type", "new_student_no", "status", "created_at", "deleted"]
+}

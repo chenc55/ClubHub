@@ -1,0 +1,14 @@
+{
+    "name":  "dashboard",
+    "version":  "1.0.0",
+    "main":  "index.js",
+    "cloudfunction-config":  {
+                                 "concurrency":  1,
+                                 "memorySize":  256,
+                                 "timeout":  20,
+                                 "path":  "/dashboard",
+                                 "method":  [
+                                                "GET"
+                                            ]
+                             }
+}

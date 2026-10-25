@@ -1,0 +1,42 @@
+[
+  {
+    "name": "学术科技",
+    "sort": 1,
+    "deleted": 0
+  },
+  {
+    "name": "文艺表演",
+    "sort": 2,
+    "deleted": 0
+  },
+  {
+    "name": "体育竞技",
+    "sort": 3,
+    "deleted": 0
+  },
+  {
+    "name": "公益实践",
+    "sort": 4,
+    "deleted": 0
+  },
+  {
+    "name": "创新创业",
+    "sort": 5,
+    "deleted": 0
+  },
+  {
+    "name": "思想政治",
+    "sort": 6,
+    "deleted": 0
+  },
+  {
+    "name": "兴趣爱好",
+    "sort": 7,
+    "deleted": 0
+  },
+  {
+    "name": "其他",
+    "sort": 8,
+    "deleted": 0
+  }
+]

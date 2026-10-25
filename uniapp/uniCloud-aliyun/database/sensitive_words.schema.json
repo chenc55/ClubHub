@@ -1,0 +1,33 @@
+{
+  "bsonType": "object",
+  "description": "sensitive_words（敏感词库）：word 唯一索引；level 分级执行规则见需求 2.5（block 拦截 / review 送审）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "敏感词 ID"
+    },
+    "word": {
+      "bsonType": "string",
+      "description": "词条，唯一索引"
+    },
+    "level": {
+      "bsonType": "string",
+      "enum": ["block", "review"],
+      "description": "级别：block 拦截 / review 送审"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["word", "level", "created_at", "deleted"]
+}

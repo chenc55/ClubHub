@@ -1,0 +1,66 @@
+{
+  "durationTarget": 60,
+  "steps": [
+    {
+      "second": 7,
+      "completed_at": 7.267,
+      "label": "打开活动详情"
+    },
+    {
+      "second": 14,
+      "completed_at": 15.375,
+      "label": "填写报名备注"
+    },
+    {
+      "second": 19,
+      "completed_at": 19.097,
+      "label": "提交报名成功"
+    },
+    {
+      "second": 23,
+      "completed_at": 23.152,
+      "label": "报名记录持久于本地服务内存"
+    },
+    {
+      "second": 29,
+      "completed_at": 29.186,
+      "label": "招新动态表单交互"
+    },
+    {
+      "second": 36,
+      "completed_at": 36.274,
+      "label": "管理工作台"
+    },
+    {
+      "second": 41,
+      "completed_at": 41.318,
+      "label": "打开待审活动"
+    },
+    {
+      "second": 46,
+      "completed_at": 46.345,
+      "label": "审核通过并验证列表更新"
+    },
+    {
+      "second": 51,
+      "completed_at": 51.155,
+      "label": "四维数据统计展示"
+    },
+    {
+      "second": 57,
+      "completed_at": 57.012,
+      "label": "项目入口"
+    }
+  ],
+  "errors": [],
+  "scope": "Real local browser interactions with synthetic in-memory API; no deployment or cloud acceptance",
+  "video": {
+    "path": "docs/media/clubhub-demo-60s.mp4",
+    "duration_seconds": 60,
+    "width": 1920,
+    "height": 1080,
+    "fps": 25,
+    "codec": "H.264",
+    "audio": false
+  }
+}

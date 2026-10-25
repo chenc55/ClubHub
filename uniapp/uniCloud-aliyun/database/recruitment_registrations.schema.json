@@ -1,0 +1,59 @@
+{
+  "bsonType": "object",
+  "description": "recruitment_registrations（招新报名）：复合索引 (recruitment_id, user_id)；interview 面试信息内嵌",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "招新报名记录 ID"
+    },
+    "recruitment_id": {
+      "bsonType": "string",
+      "description": "招新岗位 ID（复合索引）"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "用户 ID（复合索引）"
+    },
+    "form_data": {
+      "bsonType": "object",
+      "description": "基础信息 + 自荐 + 自定义字段值（JSON 内嵌）"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["pending", "interview", "accepted", "rejected"],
+      "description": "状态：pending / interview / accepted / rejected"
+    },
+    "interview": {
+      "bsonType": "object",
+      "description": "面试时间/地点（JSON 内嵌，可空）",
+      "properties": {
+        "time": {
+          "bsonType": "string",
+          "description": "面试时间（前端 new Date(...) 序列化后的 ISO 字符串）"
+        },
+        "place": {
+          "bsonType": "string",
+          "description": "面试地点"
+        }
+      }
+    },
+    "applied_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "报名时间"
+    },
+    "accept_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "录取时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["recruitment_id", "user_id", "status", "applied_at", "deleted"]
+}

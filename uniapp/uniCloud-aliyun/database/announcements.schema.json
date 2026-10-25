@@ -1,0 +1,49 @@
+{
+  "bsonType": "object",
+  "description": "announcements（公告）：发布后写入站内消息 + 首页 Banner（取最新 5 条 published），下架实时移出（需求 ADM-06）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "公告 ID"
+    },
+    "title": {
+      "bsonType": "string",
+      "description": "标题"
+    },
+    "content": {
+      "bsonType": "string",
+      "description": "内容"
+    },
+    "banner": {
+      "bsonType": "string",
+      "description": "可选 Banner 图 URL"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["published", "offline"],
+      "description": "状态：published 已发布 / offline 已下架"
+    },
+    "publisher": {
+      "bsonType": "string",
+      "description": "发布管理员"
+    },
+    "published_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "发布时间"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["title", "content", "status", "created_at", "deleted"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "clubhub-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "社团星球：uni-app + Vue 3 + uniCloud 校园社团项目",
+  "scripts": {
+    "demo": "node demo/start.cjs",
+    "demo:api": "node demo/server.cjs",
+    "test:offline": "node demo/test-offline.cjs",
+    "record": "node demo/record.cjs"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": { "playwright": "1.62.1" }
+}

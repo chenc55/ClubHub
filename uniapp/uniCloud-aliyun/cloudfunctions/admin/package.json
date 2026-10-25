@@ -1,0 +1,17 @@
+{
+    "name":  "admin",
+    "version":  "1.0.0",
+    "main":  "index.js",
+    "cloudfunction-config":  {
+                                 "concurrency":  1,
+                                 "memorySize":  256,
+                                 "timeout":  20,
+                                 "path":  "/admin",
+                                 "method":  [
+                                                "GET",
+                                                "POST",
+                                                "PUT",
+                                                "DELETE"
+                                            ]
+                             }
+}

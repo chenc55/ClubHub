@@ -1,0 +1,86 @@
+{
+  "bsonType": "object",
+  "description": "clubs（社团）：status 状态机 pending → normal/banned，驳回分支 pending ⇄ rejected（需求 4.4）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "社团 ID"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "社团名，唯一索引"
+    },
+    "intro": {
+      "bsonType": "string",
+      "description": "简介"
+    },
+    "logo": {
+      "bsonType": "string",
+      "description": "Logo URL"
+    },
+    "cover": {
+      "bsonType": "string",
+      "description": "封面 URL"
+    },
+    "category_id": {
+      "bsonType": "string",
+      "description": "关联 categories._id"
+    },
+    "star_level": {
+      "bsonType": "int",
+      "description": "星级 1~5"
+    },
+    "contact": {
+      "bsonType": "string",
+      "description": "联系方式"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["pending", "normal", "rejected", "banned"],
+      "description": "状态：pending / normal / rejected / banned"
+    },
+    "create_type": {
+      "bsonType": "string",
+      "enum": ["imported", "applied"],
+      "description": "创建方式：imported 管理端导入 / applied 学生申请入驻"
+    },
+    "applicant_id": {
+      "bsonType": "string",
+      "description": "申请入驻的学生 user_id（create_type = applied）；审核通过时据此创建 club_members.president"
+    },
+    "reject_reason": {
+      "bsonType": "string",
+      "description": "驳回理由（status = rejected 时必填，需求 4.2.1）"
+    },
+    "review_by": {
+      "bsonType": "string",
+      "description": "审核人（管理员用户名）"
+    },
+    "review_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "审核时间"
+    },
+    "batch_no": {
+      "bsonType": "string",
+      "description": "导入批次号（create_type = imported，回执可追溯）"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "updated_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "更新时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["name", "status", "create_type", "created_at", "deleted"]
+}

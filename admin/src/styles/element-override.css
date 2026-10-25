@@ -1,0 +1,57 @@
+/**
+ * Element Plus 主题变量覆盖（P0-03）
+ * 唯一来源：design.md「2.1 颜色系统」
+ * 规则：后续 EP 组件配色不再单独覆盖，统一收敛到本文件
+ */
+:root {
+  /* 品牌主色 → 活力大学蓝 */
+  --el-color-primary: #2f80ed;
+  --el-color-primary-hover: #1d68d8;
+  --el-color-primary-light-3: #599ff1;
+  --el-color-primary-light-5: #83bcf5;
+  --el-color-primary-light-7: #add8f8;
+  --el-color-primary-light-8: #c2e2fa;
+  --el-color-primary-light-9: #eff4ff;
+  --el-color-primary-dark-2: #2666be;
+
+  /* 状态色 → 孟菲斯色板 */
+  --el-color-success: #06d6a0;
+  --el-color-success-light-3: #38debd;
+  --el-color-success-light-5: #83ead3;
+  --el-color-success-light-7: #b5f3e6;
+  --el-color-success-light-8: #cef8ef;
+  --el-color-success-light-9: #e6faf5;
+  --el-color-warning: #f59e0b;
+  --el-color-warning-light-9: #fff9e6;
+  --el-color-danger: #f43f5e;
+  --el-color-danger-light-3: #f76580;
+  --el-color-danger-light-5: #f98d9e;
+  --el-color-danger-light-7: #fcb4c0;
+  --el-color-danger-light-8: #fdc8d0;
+  --el-color-danger-light-9: #fee2e2;
+  --el-color-error: #f43f5e;
+  --el-color-error-light-9: #fee2e2;
+  --el-color-info: #0ea5e9;
+  --el-color-info-light-9: #e0f2fe;
+
+  /* 文字与边框 */
+  --el-text-color-primary: #0f172a;
+  --el-text-color-regular: #334155;
+  --el-text-color-secondary: #64748b;
+  --el-border-color: #0f172a;
+  --el-border-color-light: #0f172a;
+  --el-border-color-lighter: #e2e8f0;
+  --el-fill-color-blank: #ffffff;
+  --el-bg-color-page: #f8f9ff;
+
+  /* 圆角与投影孟菲斯化 */
+  --el-border-radius-base: 10px;
+  --el-border-radius-small: 6px;
+  --el-border-radius-round: 9999px;
+  --el-box-shadow: 3px 3px 0px #0f172a;
+  --el-box-shadow-light: 2px 2px 0px #0f172a;
+  --el-box-shadow-lighter: 1px 1px 0px #0f172a;
+
+  /* 字体 */
+  --el-font-family: 'PingFang SC', 'HarmonyOS Sans', 'Microsoft YaHei', sans-serif;
+}

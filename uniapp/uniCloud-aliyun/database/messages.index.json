@@ -1,0 +1,22 @@
+[
+  {
+    "IndexName": "user_scene_biz_unique",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        {
+          "Name": "user_id",
+          "Direction": "1"
+        },
+        {
+          "Name": "scene",
+          "Direction": "1"
+        },
+        {
+          "Name": "biz_id",
+          "Direction": "1"
+        }
+      ],
+      "MgoIsUnique": true
+    }
+  }
+]

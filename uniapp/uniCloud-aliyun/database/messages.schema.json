@@ -1,0 +1,71 @@
+{
+  "bsonType": "object",
+  "description": "messages（站内消息）：全端兜底通知通道；点击按 biz_type + biz_id 跳转关联详情（需求 2.4 / STU-07）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "消息 ID"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "接收人用户 ID"
+    },
+    "type": {
+      "bsonType": "string",
+      "enum": ["system", "activity", "recruitment"],
+      "description": "消息类型：system 系统通知 / activity 活动消息 / recruitment 招新消息"
+    },
+    "scene": {
+      "bsonType": "string",
+      "description": "事件场景（去重维度，见《功能需求.md》2.4 场景清单），如 activity_signup_success；与 user_id + biz_id 组成唯一键"
+    },
+    "title": {
+      "bsonType": "string",
+      "description": "标题"
+    },
+    "content": {
+      "bsonType": "string",
+      "description": "内容"
+    },
+    "biz_type": {
+      "bsonType": "string",
+      "enum": ["activity", "recruitment", "announcement", "appeal", "club"],
+      "description": "关联业务类型，点击消息跳转详情"
+    },
+    "biz_id": {
+      "bsonType": "string",
+      "description": "关联业务 ID，点击消息跳转详情"
+    },
+    "push_status": {
+      "bsonType": "string",
+      "enum": ["site_only", "sent", "skipped", "failed"],
+      "description": "订阅消息下发结果：site_only 仅站内（未配置模板/无 openid）/ sent 已推送 / skipped 用户拒绝或额度用尽 / failed 推送失败"
+    },
+    "push_error": {
+      "bsonType": "string",
+      "description": "推送失败原因（微信 errcode + errmsg，可空）"
+    },
+    "pushed_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "订阅消息下发时间（可空）"
+    },
+    "is_read": {
+      "bsonType": "bool",
+      "description": "是否已读"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["user_id", "type", "scene", "title", "content", "created_at", "deleted"]
+}

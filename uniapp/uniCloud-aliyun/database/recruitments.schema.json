@@ -1,0 +1,77 @@
+{
+  "bsonType": "object",
+  "description": "recruitments（招新岗位）：status 状态机 draft → pending → open → closed（截止/报满自动关闭，需求 4.4）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "招新岗位 ID"
+    },
+    "club_id": {
+      "bsonType": "string",
+      "description": "所属社团 ID"
+    },
+    "title": {
+      "bsonType": "string",
+      "description": "岗位标题"
+    },
+    "content": {
+      "bsonType": "string",
+      "description": "岗位内容"
+    },
+    "form_fields": {
+      "bsonType": "array",
+      "description": "自定义报名表字段（JSON 内嵌：单选/多选/问答）"
+    },
+    "multi_step": {
+      "bsonType": "bool",
+      "description": "是否多步（含面试）"
+    },
+    "signup_end": {
+      "bsonType": ["date", "timestamp"],
+      "description": "报名截止时间（到期自动关闭）"
+    },
+    "capacity": {
+      "bsonType": "int",
+      "description": "招聘人数上限（报满自动关闭；可空 = 不限）"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["draft", "pending", "open", "closed"],
+      "description": "状态：draft / pending / open / closed"
+    },
+    "submitter_id": {
+      "bsonType": "string",
+      "description": "提交审核的负责人 user_id（审核结果通知发起人，P1-16）"
+    },
+    "reject_reason": {
+      "bsonType": "string",
+      "description": "驳回理由（被驳回回退 draft 时保留，重提时清空）"
+    },
+    "review_by": {
+      "bsonType": "string",
+      "description": "审核人（管理员 user_id）"
+    },
+    "review_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "审核时间"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "updated_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "更新时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["club_id", "title", "status", "created_at", "deleted"]
+}

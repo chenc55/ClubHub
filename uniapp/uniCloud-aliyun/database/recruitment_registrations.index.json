@@ -1,0 +1,18 @@
+[
+  {
+    "IndexName": "recruitment_user_composite",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        {
+          "Name": "recruitment_id",
+          "Direction": "1"
+        },
+        {
+          "Name": "user_id",
+          "Direction": "1"
+        }
+      ],
+      "MgoIsUnique": false
+    }
+  }
+]

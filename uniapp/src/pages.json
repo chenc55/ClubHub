@@ -1,0 +1,207 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^sb-(.*)": "@/components/sb-$1/sb-$1.vue",
+      "^page-stub$": "@/components/page-stub/page-stub.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": { "navigationBarTitleText": "社团星球", "enablePullDownRefresh": true }
+    },
+    {
+      "path": "pages/activities/index",
+      "style": { "navigationBarTitleText": "活动", "enablePullDownRefresh": true }
+    },
+    {
+      "path": "pages/clubs/index",
+      "style": { "navigationBarTitleText": "社团", "enablePullDownRefresh": true }
+    },
+    {
+      "path": "pages/messages/index",
+      "style": { "navigationBarTitleText": "消息", "enablePullDownRefresh": true }
+    },
+    {
+      "path": "pages/profile/index",
+      "style": { "navigationBarTitleText": "我的" }
+    },
+    {
+      "path": "pages/subpages/login/index",
+      "style": { "navigationBarTitleText": "登录 / 学号认证" }
+    },
+    {
+      "path": "pages/subpages/activity-detail/index",
+      "style": { "navigationBarTitleText": "活动详情" }
+    },
+    {
+      "path": "pages/subpages/activity-register/index",
+      "style": { "navigationBarTitleText": "活动报名" }
+    },
+    {
+      "path": "pages/subpages/activity-manage/index",
+      "style": { "navigationBarTitleText": "活动管理" }
+    },
+    {
+      "path": "pages/subpages/activity-edit/index",
+      "style": { "navigationBarTitleText": "创建活动" }
+    },
+    {
+      "path": "pages/subpages/checkin/index",
+      "style": { "navigationBarTitleText": "签到" }
+    },
+    {
+      "path": "pages/subpages/checkin-manage/index",
+      "style": { "navigationBarTitleText": "签到管理" }
+    },
+    {
+      "path": "pages/subpages/registration-list/index",
+      "style": { "navigationBarTitleText": "报名名单" }
+    },
+    {
+      "path": "pages/subpages/club-detail/index",
+      "style": { "navigationBarTitleText": "社团详情" }
+    },
+    {
+      "path": "pages/subpages/post-create/index",
+      "style": { "navigationBarTitleText": "发布动态" }
+    },
+    {
+      "path": "pages/subpages/my-posts/index",
+      "style": { "navigationBarTitleText": "我的动态" }
+    },
+    {
+      "path": "pages/subpages/recruitment/index",
+      "style": { "navigationBarTitleText": "招新聚合" }
+    },
+    {
+      "path": "pages/subpages/recruitment-register/index",
+      "style": { "navigationBarTitleText": "招新报名" }
+    },
+    {
+      "path": "pages/subpages/recruitment-manage/index",
+      "style": { "navigationBarTitleText": "招新管理" }
+    },
+    {
+      "path": "pages/subpages/recruitment-edit/index",
+      "style": { "navigationBarTitleText": "创建招新" }
+    },
+    {
+      "path": "pages/subpages/my-recruitments/index",
+      "style": { "navigationBarTitleText": "我的招新状态" }
+    },
+    {
+      "path": "pages/subpages/applicants/index",
+      "style": { "navigationBarTitleText": "申请人管理" }
+    },
+    {
+      "path": "pages/subpages/rebind-appeal/index",
+      "style": { "navigationBarTitleText": "换绑申诉" }
+    },
+    {
+      "path": "pages/subpages/search/index",
+      "style": { "navigationBarTitleText": "搜索结果" }
+    },
+    {
+      "path": "pages/subpages/announcement-detail/index",
+      "style": { "navigationBarTitleText": "公告详情" }
+    },
+    {
+      "path": "pages/subpages/my-activities/index",
+      "style": { "navigationBarTitleText": "我的活动" }
+    },
+    {
+      "path": "pages/subpages/my-registrations/index",
+      "style": { "navigationBarTitleText": "我的报名" }
+    },
+    {
+      "path": "pages/subpages/my-clubs/index",
+      "style": { "navigationBarTitleText": "我的社团" }
+    },
+    {
+      "path": "pages/subpages/club-apply/index",
+      "style": { "navigationBarTitleText": "社团入驻申请" }
+    },
+    {
+      "path": "pages/subpages/my-profile/index",
+      "style": { "navigationBarTitleText": "我的资料" }
+    },
+    {
+      "path": "pages/subpages/settings/index",
+      "style": { "navigationBarTitleText": "设置与帮助" }
+    },
+    {
+      "path": "pages/subpages/deletion-apply/index",
+      "style": { "navigationBarTitleText": "注销账号" }
+    },
+    {
+      "path": "pages/subpages/static-page/index",
+      "style": { "navigationBarTitleText": "协议与说明" }
+    },
+    {
+      "path": "pages/subpages/club-admin/index",
+      "style": { "navigationBarTitleText": "社团管理主页" }
+    },
+    {
+      "path": "pages/subpages/members/index",
+      "style": { "navigationBarTitleText": "成员管理" }
+    },
+    {
+      "path": "pages/subpages/stats/index",
+      "style": { "navigationBarTitleText": "社团统计" }
+    },
+    {
+      "path": "pages/subpages/club-profile/index",
+      "style": { "navigationBarTitleText": "社团资料" }
+    },
+    {
+      "path": "pages/subpages/design-demo/index",
+      "style": { "navigationBarTitleText": "设计系统 Demo" }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "社团星球",
+    "navigationBarBackgroundColor": "#2F80ED",
+    "backgroundColor": "#F8F9FF"
+  },
+  "tabBar": {
+    "color": "#64748B",
+    "selectedColor": "#2F80ED",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/activities/index",
+        "text": "活动",
+        "iconPath": "static/tabbar/activity.png",
+        "selectedIconPath": "static/tabbar/activity-active.png"
+      },
+      {
+        "pagePath": "pages/clubs/index",
+        "text": "社团",
+        "iconPath": "static/tabbar/club.png",
+        "selectedIconPath": "static/tabbar/club-active.png"
+      },
+      {
+        "pagePath": "pages/messages/index",
+        "text": "消息",
+        "iconPath": "static/tabbar/message.png",
+        "selectedIconPath": "static/tabbar/message-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "static/tabbar/profile.png",
+        "selectedIconPath": "static/tabbar/profile-active.png"
+      }
+    ]
+  }
+}

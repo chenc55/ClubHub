@@ -1,0 +1,49 @@
+{
+  "bsonType": "object",
+  "description": "checkins（签到记录）：复合索引 (activity_id, user_id) 唯一（保证重复签到拦截）；duration 预留学分/志愿时长",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "签到记录 ID"
+    },
+    "activity_id": {
+      "bsonType": "string",
+      "description": "活动 ID（复合唯一索引）"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "用户 ID（复合唯一索引）"
+    },
+    "registration_id": {
+      "bsonType": "string",
+      "description": "关联报名记录 ID（可空）"
+    },
+    "signin_method": {
+      "bsonType": "string",
+      "enum": ["scan", "location", "manual"],
+      "description": "签到方式：scan 扫码 / location 定位 / manual 人工补签"
+    },
+    "signin_time": {
+      "bsonType": ["date", "timestamp"],
+      "description": "签到时间"
+    },
+    "duration": {
+      "bsonType": "int",
+      "description": "时长（分钟，预留学分/志愿时长扩展）"
+    },
+    "operator": {
+      "bsonType": "string",
+      "description": "操作人（补签时为负责人）"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["activity_id", "user_id", "signin_method", "signin_time", "deleted"]
+}

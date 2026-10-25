@@ -1,0 +1,58 @@
+{
+  "bsonType": "object",
+  "description": "admins（管理员）：管理端登录账号；role 三角色按需求 2.3 权限矩阵（super / auditor / viewer）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "管理员 ID"
+    },
+    "username": {
+      "bsonType": "string",
+      "description": "登录账号，唯一索引"
+    },
+    "password_hash": {
+      "bsonType": "string",
+      "description": "密码哈希（sha256$salt$hash 格式，P0-09 校验）"
+    },
+    "role": {
+      "bsonType": "string",
+      "enum": ["super", "auditor", "viewer"],
+      "description": "角色：super 超级管理员 / auditor 审核员 / viewer 数据查看员"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "姓名"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["normal", "disabled"],
+      "description": "账号状态：normal / disabled"
+    },
+    "last_login_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "最近登录时间"
+    },
+    "failed_attempts": {
+      "bsonType": "int",
+      "description": "连续登录失败次数（达 5 次锁定 15 分钟；登录成功或解锁后清零，P0-09）"
+    },
+    "locked_until": {
+      "bsonType": ["date", "timestamp"],
+      "description": "锁定截止时间，为空或已过期表示未锁定（P0-09）"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["username", "password_hash", "role", "status", "created_at", "deleted"]
+}

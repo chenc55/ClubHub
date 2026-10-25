@@ -1,0 +1,62 @@
+/**
+ * Neo-Memphis 主题 CSS 自定义属性（运行时变量，与 uni.scss 令牌一一对应）
+ * 来源：design.md v1.0「2. 设计令牌系统」；由 App.vue 全局引入
+ * 用法：color: var(--color-primary); box-shadow: var(--shadow-memphis-sm);
+ */
+page {
+  /* ---- 品牌主色 ---- */
+  --color-primary: #2f80ed;
+  --color-primary-hover: #1d68d8;
+  --color-primary-light: #eff4ff;
+
+  /* ---- 功能辅助与状态色 ---- */
+  --color-success: #06d6a0;
+  --color-success-light: #e6faf5;
+  --color-warning: #ffd166;
+  --color-warning-light: #fff9e6;
+  --color-danger: #f43f5e;
+  --color-danger-light: #fee2e2;
+  --color-info: #0ea5e9;
+  --color-info-light: #e0f2fe;
+  --color-info-text: #0284c7;
+
+  /* ---- 中性色与背景 ---- */
+  --color-bg-canvas: #f8f9ff;
+  --color-bg-card: #ffffff;
+  --color-memphis-dark: #0f172a;
+  --color-border-dark: #0f172a;
+  --color-border-light: #e2e8f0;
+  --color-text-title: #0f172a;
+  --color-text-body: #334155;
+  --color-text-muted: #64748b;
+
+  /* ---- 字体三栈 ---- */
+  --font-display: 'Space Grotesk', 'PingFang SC', sans-serif;
+  --font-sans: 'PingFang SC', 'HarmonyOS Sans', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ---- 硬投影（无模糊实心偏移） ---- */
+  --shadow-memphis-xs: 2rpx 2rpx 0 0 var(--color-memphis-dark);
+  --shadow-memphis-sm: 4rpx 4rpx 0 0 var(--color-memphis-dark);
+  --shadow-memphis-md: 6rpx 6rpx 0 0 var(--color-memphis-dark);
+  --shadow-memphis-lg: 8rpx 8rpx 0 0 var(--color-memphis-dark);
+
+  /* ---- 圆角 ---- */
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 32rpx;
+  --radius-full: 9999px;
+}
+
+/* ---- 安全区工具类（design.md 4.2-2） ---- */
+
+/* 顶部状态栏避让（微信胶囊按钮）：padding-top: var(--status-bar-height) */
+.sb-safe-top {
+  padding-top: var(--status-bar-height);
+}
+
+/* 底部安全区 */
+.sb-safe-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}

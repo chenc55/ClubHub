@@ -1,0 +1,109 @@
+{
+  "bsonType": "object",
+  "description": "activities（活动）：status 状态机 draft → pending → approved → signup → ongoing → ended → archived（需求 4.4）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "活动 ID"
+    },
+    "club_id": {
+      "bsonType": "string",
+      "description": "主办社团 ID"
+    },
+    "title": {
+      "bsonType": "string",
+      "description": "标题"
+    },
+    "content": {
+      "bsonType": "string",
+      "description": "图文内容"
+    },
+    "cover": {
+      "bsonType": "string",
+      "description": "封面 URL"
+    },
+    "category_id": {
+      "bsonType": "string",
+      "description": "活动分类（可复用社团分类）"
+    },
+    "start_time": {
+      "bsonType": ["date", "timestamp"],
+      "description": "活动开始时间"
+    },
+    "end_time": {
+      "bsonType": ["date", "timestamp"],
+      "description": "活动结束时间"
+    },
+    "location": {
+      "bsonType": "string",
+      "description": "地点"
+    },
+    "signup_start": {
+      "bsonType": ["date", "timestamp"],
+      "description": "报名开始时间"
+    },
+    "signup_end": {
+      "bsonType": ["date", "timestamp"],
+      "description": "报名截止时间"
+    },
+    "capacity": {
+      "bsonType": "int",
+      "description": "人数上限"
+    },
+    "need_approval": {
+      "bsonType": "bool",
+      "description": "是否报名审核"
+    },
+    "has_waitlist": {
+      "bsonType": "bool",
+      "description": "是否候补"
+    },
+    "allow_onsite": {
+      "bsonType": "bool",
+      "description": "是否允许现场补报（默认 false）"
+    },
+    "signin_config": {
+      "bsonType": "object",
+      "description": "签到配置 JSON（方式/定位范围/时段/口令，内嵌）"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["draft", "pending", "approved", "signup", "ongoing", "ended", "archived"],
+      "description": "状态：draft / pending / approved / signup / ongoing / ended / archived"
+    },
+    "submitter_id": {
+      "bsonType": "string",
+      "description": "提交审核的负责人 user_id（P1-11 新增；审核结果通知发起人，多负责人社团由实际提交者接收）"
+    },
+    "reject_reason": {
+      "bsonType": "string",
+      "description": "驳回理由（status = draft 且曾被驳回时保留，重提时清空；P1-11）"
+    },
+    "review_by": {
+      "bsonType": "string",
+      "description": "审核人（管理员用户名；P1-11）"
+    },
+    "review_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "审核时间（P1-11）"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "updated_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "更新时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["club_id", "title", "start_time", "end_time", "capacity", "status", "created_at", "deleted"]
+}

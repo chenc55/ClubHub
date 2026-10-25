@@ -1,0 +1,464 @@
+{
+  "admins": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "username_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "username",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      }
+    ]
+  },
+  "categories": {
+    "data": [
+      {
+        "name": "学术科技",
+        "sort": 1,
+        "deleted": 0
+      },
+      {
+        "name": "文艺表演",
+        "sort": 2,
+        "deleted": 0
+      },
+      {
+        "name": "体育竞技",
+        "sort": 3,
+        "deleted": 0
+      },
+      {
+        "name": "公益实践",
+        "sort": 4,
+        "deleted": 0
+      },
+      {
+        "name": "创新创业",
+        "sort": 5,
+        "deleted": 0
+      },
+      {
+        "name": "思想政治",
+        "sort": 6,
+        "deleted": 0
+      },
+      {
+        "name": "兴趣爱好",
+        "sort": 7,
+        "deleted": 0
+      },
+      {
+        "name": "其他",
+        "sort": 8,
+        "deleted": 0
+      }
+    ],
+    "index": [
+      {
+        "IndexName": "name_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "name",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      }
+    ]
+  },
+  "sensitive_words": {
+    "data": [
+      {
+        "word": "兼职刷单",
+        "level": "block",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "代考",
+        "level": "block",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "文凭代办",
+        "level": "block",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "校园贷款",
+        "level": "block",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "售卖答案",
+        "level": "block",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "出租学号",
+        "level": "block",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "外挂脚本",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "代理招生",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "兼职日结",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "优惠返现",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "扫码领红包",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "私下拉群",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "包过辅导",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "有偿互助",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      },
+      {
+        "word": "无押金线上",
+        "level": "review",
+        "created_at": 1789344000000,
+        "deleted": 0
+      }
+    ],
+    "index": [
+      {
+        "IndexName": "word_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "word",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      }
+    ]
+  },
+  "whitelist": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "student_no_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "student_no",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      }
+    ]
+  },
+  "users": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "openid_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "openid",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      },
+      {
+        "IndexName": "student_no_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "student_no",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      }
+    ]
+  },
+  "clubs": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "name_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "name",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      }
+    ]
+  },
+  "club_members": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "club_user_composite",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "club_id",
+              "Direction": "1"
+            },
+            {
+              "Name": "user_id",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": false
+        }
+      }
+    ]
+  },
+  "activities": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "status_created_composite",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "status",
+              "Direction": "1"
+            },
+            {
+              "Name": "created_at",
+              "Direction": "-1"
+            }
+          ],
+          "MgoIsUnique": false
+        }
+      }
+    ]
+  },
+  "activity_registrations": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "activity_user_composite",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "activity_id",
+              "Direction": "1"
+            },
+            {
+              "Name": "user_id",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": false
+        }
+      }
+    ]
+  },
+  "checkins": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "activity_user_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "activity_id",
+              "Direction": "1"
+            },
+            {
+              "Name": "user_id",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      }
+    ]
+  },
+  "recruitments": {
+    "data": [],
+    "index": []
+  },
+  "recruitment_registrations": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "recruitment_user_composite",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "recruitment_id",
+              "Direction": "1"
+            },
+            {
+              "Name": "user_id",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": false
+        }
+      }
+    ]
+  },
+  "club_posts": {
+    "data": [],
+    "index": []
+  },
+  "messages": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "user_scene_biz_unique",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "user_id",
+              "Direction": "1"
+            },
+            {
+              "Name": "scene",
+              "Direction": "1"
+            },
+            {
+              "Name": "biz_id",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": true
+        }
+      }
+    ]
+  },
+  "announcements": {
+    "data": [],
+    "index": []
+  },
+  "appeals": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "user_status_composite",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "user_id",
+              "Direction": "1"
+            },
+            {
+              "Name": "status",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": false
+        }
+      },
+      {
+        "IndexName": "status_created_composite",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "status",
+              "Direction": "1"
+            },
+            {
+              "Name": "created_at",
+              "Direction": "-1"
+            }
+          ],
+          "MgoIsUnique": false
+        }
+      }
+    ]
+  },
+  "account_deletion_requests": {
+    "data": [],
+    "index": [
+      {
+        "IndexName": "user_status_composite",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "user_id",
+              "Direction": "1"
+            },
+            {
+              "Name": "status",
+              "Direction": "1"
+            }
+          ],
+          "MgoIsUnique": false
+        }
+      },
+      {
+        "IndexName": "status_created_composite",
+        "MgoKeySchema": {
+          "MgoIndexKeys": [
+            {
+              "Name": "status",
+              "Direction": "1"
+            },
+            {
+              "Name": "created_at",
+              "Direction": "-1"
+            }
+          ],
+          "MgoIsUnique": false
+        }
+      }
+    ]
+  }
+}

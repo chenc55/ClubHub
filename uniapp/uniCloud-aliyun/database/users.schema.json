@@ -1,0 +1,74 @@
+{
+  "bsonType": "object",
+  "description": "users（用户）：微信小程序/H5 学生端用户；auth_status 与 status 双字段正交（需求 7.2 / 4.4 状态机）",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "用户 ID"
+    },
+    "openid": {
+      "bsonType": "string",
+      "description": "微信 openid，唯一索引"
+    },
+    "student_no": {
+      "bsonType": "string",
+      "description": "学号，认证后唯一索引"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "姓名"
+    },
+    "college": {
+      "bsonType": "string",
+      "description": "学院"
+    },
+    "major": {
+      "bsonType": "string",
+      "description": "专业"
+    },
+    "avatar": {
+      "bsonType": "string",
+      "description": "头像 URL"
+    },
+    "nickname": {
+      "bsonType": "string",
+      "description": "微信昵称"
+    },
+    "auth_status": {
+      "bsonType": "string",
+      "enum": ["unverified", "verified"],
+      "description": "认证态：unverified / verified"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": ["normal", "disabled"],
+      "description": "账号态：normal / disabled（禁用态与认证态正交）"
+    },
+    "created_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "创建时间"
+    },
+    "verified_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "认证完成时间（P2-03 新增；「新增用户数」数据源，P1-03 认证成功时写入）"
+    },
+    "last_active_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "最近活跃时间（P2-03 新增；DAU/MAU 数据源，登录 / 会话刷新 / 学号认证时打点）"
+    },
+    "updated_at": {
+      "bsonType": ["date", "timestamp"],
+      "description": "更新时间"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["openid", "auth_status", "status", "created_at", "deleted"]
+}

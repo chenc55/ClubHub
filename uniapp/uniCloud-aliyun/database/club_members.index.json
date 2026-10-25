@@ -1,0 +1,18 @@
+[
+  {
+    "IndexName": "club_user_composite",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        {
+          "Name": "club_id",
+          "Direction": "1"
+        },
+        {
+          "Name": "user_id",
+          "Direction": "1"
+        }
+      ],
+      "MgoIsUnique": false
+    }
+  }
+]

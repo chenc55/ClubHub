@@ -1,0 +1,28 @@
+{
+  "bsonType": "object",
+  "description": "categories（社团分类）：基础字典表，P1-07 维护；种子含文艺/体育/学术/公益等基础分类",
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "分类 ID"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "分类名"
+    },
+    "sort": {
+      "bsonType": "int",
+      "description": "排序值（升序）"
+    },
+    "deleted": {
+      "bsonType": "int",
+      "description": "软删除标志 0/1"
+    }
+  },
+  "required": ["name", "sort", "deleted"]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "IndexName": "activity_user_composite",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        {
+          "Name": "activity_id",
+          "Direction": "1"
+        },
+        {
+          "Name": "user_id",
+          "Direction": "1"
+        }
+      ],
+      "MgoIsUnique": false
+    }
+  }
+]

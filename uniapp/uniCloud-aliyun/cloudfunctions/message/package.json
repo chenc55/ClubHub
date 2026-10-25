@@ -1,0 +1,17 @@
+{
+    "name":  "message",
+    "version":  "1.0.0",
+    "main":  "index.js",
+    "cloudfunction-config":  {
+                                 "concurrency":  1,
+                                 "memorySize":  256,
+                                 "timeout":  20,
+                                 "path":  "/message",
+                                 "method":  [
+                                                "GET",
+                                                "POST",
+                                                "PUT",
+                                                "DELETE"
+                                            ]
+                             }
+}
