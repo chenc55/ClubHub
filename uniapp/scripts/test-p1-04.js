@@ -101,7 +101,7 @@ const messagesCollection = {
 
 global.uniCloud = {
   database: () => ({
-    collection: (name) => (name === 'users' ? { where: (cond) => makeQuery(users.filter((row) => matchCond(row, cond))) } : messagesCollection),
+    collection: (name) => name === 'admins' ? require('./helpers/admin-fixtures').adminCollection() : (name === 'users' ? { where: (cond) => makeQuery(users.filter((row) => matchCond(row, cond))) } : messagesCollection),
     command: {},
   }),
   httpclient: {
@@ -122,7 +122,7 @@ const club = require('../uniCloud-aliyun/cloudfunctions/common/club-common')
 const superToken = club.signToken({ type: 'admin', adminId: 'a-1', username: 'root', role: 'super' })
 const auditorToken = club.signToken({ type: 'admin', adminId: 'a-2', username: 'audit', role: 'auditor' })
 const studentToken = club.signToken({ type: 'student', token_kind: 'access', userId: 'u-1', openid: 'o-1' })
-const adminFnToken = club.signToken({ type: 'admin', adminId: 'a-9', username: 'x', role: 'viewer' })
+const adminFnToken = club.signToken({ type: 'admin', adminId: 'a-3', username: 'x', role: 'viewer' })
 
 function resetEnv(extra = {}) {
   Object.keys(process.env)

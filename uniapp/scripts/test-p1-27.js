@@ -156,6 +156,11 @@ stores.admins.push({
   deleted: 0,
 })
 
+stores.admins.push(
+  { ...require('./helpers/admin-fixtures').createAdminFixtures()[1], _id: 'a-other', username: 'fixture-audit' },
+  { ...require('./helpers/admin-fixtures').createAdminFixtures()[2], _id: 'a-other2', username: 'fixture-view' }
+)
+
 const fn = require('../uniCloud-aliyun/cloudfunctions/admin/index.js')
 
 function adminToken(adminRow) {
@@ -200,7 +205,7 @@ async function main() {
 
   console.log('\n【POST /admins/query · 列表】')
   r = await call('/admins/query', {}, superToken)
-  assert('超管可见管理员列表（种子 1 条）', r.code === 0 && r.data.total === 1 && r.data.list[0].username === 'admin', JSON.stringify(r.data))
+  assert('超管可见管理员列表（三角色种子）', r.code === 0 && r.data.total === 3 && r.data.list[0].username === 'admin', JSON.stringify(r.data))
   r = await call('/admins/query', { keyword: 'admin' }, superToken)
   assert('关键词命中 username', r.data.total === 1, JSON.stringify(r.data))
   r = await call('/admins/query', { keyword: '不存在的' }, superToken)
@@ -265,7 +270,7 @@ async function main() {
 
   console.log('\n【落库口径（回滚）】')
   const finalAdmins = stores.admins.map((a) => `${a.username}:${a.role}:${a.status}`).sort()
-  assert('管理员集合 = admin:super:normal + audit01:auditor:normal + viewer1:viewer:normal', finalAdmins.join(',') === 'admin:super:normal,audit01:auditor:normal,viewer1:viewer:normal', finalAdmins.join(','))
+  assert('管理员集合包含业务账号与权限测试夹具', finalAdmins.join(',') === 'admin:super:normal,audit01:auditor:normal,fixture-audit:auditor:normal,fixture-view:viewer:normal,viewer1:viewer:normal', finalAdmins.join(','))
 
   /* ---------- 汇总 ---------- */
   console.log(`\n结果：${passed} 通过，${failed} 失败`)

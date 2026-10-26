@@ -29,7 +29,7 @@ function assert(name, cond, detail = '') {
 
 /* ---------- 集合 stub ---------- */
 let seq = 0
-const stores = { club_posts: [], clubs: [], club_members: [], messages: [], sensitive_words: [] }
+const stores = { admins: require('./helpers/admin-fixtures').createAdminFixtures(), club_posts: [], clubs: [], club_members: [], messages: [], sensitive_words: [] }
 
 function matchCond(row, cond) {
   if (cond && cond.__and) return cond.__and.every((item) => matchCond(row, item))
@@ -160,7 +160,7 @@ seedPost('p-5', 'club-a', '带点号 a.b 的词', { days: 1 })
 const fn = require('../uniCloud-aliyun/cloudfunctions/moderation/index.js')
 
 function adminToken(role) {
-  return club.signToken({ type: club.TOKEN_TYPES.ADMIN, adminId: 'a-1', username: 'root', role, name: '超管' })
+  return club.signToken({ type: club.TOKEN_TYPES.ADMIN, adminId: { super: 'a-1', auditor: 'a-2', viewer: 'a-3' }[role], username: 'root', role, name: '超管' })
 }
 const studentToken = club.signToken({
   type: club.TOKEN_TYPES.STUDENT,

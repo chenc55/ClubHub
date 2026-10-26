@@ -4,11 +4,13 @@
 
 **后续更新：依赖告警已修复。** 三个锁文件当前 npm 审计均为 0 告警，已使用独立目录全新安装并完成管理端、H5、微信小程序构建及浏览器回归。详细版本、兼容适配与验证见[依赖修复记录](DEPENDENCY-REMEDIATION.md)。下文的依赖计数与“尚未关闭”描述是上一轮检查快照，保留用于追踪修复过程；当前状态以此更新及最新 Actions 结果为准。
 
+**管理员权限修复更新：** 白名单导入已限制为 super/auditor；所有管理通道逐请求核对现有 admins 记录，禁用、删除和角色变更立即拦截。新增 18 项权限回归；依赖、构建与密钥扫描通过之后，现有必过 authentication 检查才允许通过，失败或跳过不会放行。实现及验证见[管理员权限修复记录](ADMIN-AUTHORIZATION-REMEDIATION.md)。
+
 ## 检查结论
 
 - Gitleaks 8.30.1 扫描全部现有提交（初次检查共 2 个提交）和当前工作目录，均未发现匹配的密钥泄漏。工具来自官方 Release，下载后核对 SHA-256。此结果不代表能够识别所有自定义凭据。
 - 未发布原云服务空间地址、微信 AppID、管理员种子和真实学生名单。公开演示账号与测试密钥只服务于本地合成接口或离线测试。
-- GitHub 公开 API 显示仓库为 public，GitHub Pages 未启用，`main` 分支 `protected=false`。未获取到账户 2FA、协作者清单、Actions 默认权限、Secret scanning 或 Push protection 的认证状态，不能声称这些开关已经开启。
+- 初查时 main 尚未保护；当前已启用禁止删除、禁止强推、PR 合并、分支保持最新及 authentication/secrets 必过规则。新增工作流前置条件将其余依赖与构建结果纳入现有必过检查。未获取到账户 2FA、协作者清单、Actions 默认权限、Secret scanning 或 Push protection 的认证状态，不能声称这些账户或仓库开关已经开启。
 
 ## 已落实的加固
 

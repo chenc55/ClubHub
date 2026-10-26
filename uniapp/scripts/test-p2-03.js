@@ -62,6 +62,10 @@ function makeQuery(rows) {
       return query
     },
     field: () => query,
+    limit: (n) => {
+      result = result.slice(0, n)
+      return query
+    },
     orderBy: (field, dir) => {
       result = result.slice().sort((a, b) => {
         const at = new Date(a[field]).getTime()
@@ -104,9 +108,9 @@ const now = Date.now()
 const at = (ms) => new Date(ms)
 
 stores.admins.push(
-  { _id: 'a-super', username: 'root', name: '超管', role: 'super', deleted: 0 },
-  { _id: 'a-aud', username: 'auditor1', name: '审核员', role: 'auditor', deleted: 0 },
-  { _id: 'a-view', username: 'viewer1', name: '数据员', role: 'viewer', deleted: 0 }
+  { _id: 'a-super', username: 'root', name: '超管', role: 'super', status: 'normal', deleted: 0 },
+  { _id: 'a-aud', username: 'auditor1', name: '审核员', role: 'auditor', status: 'normal', deleted: 0 },
+  { _id: 'a-view', username: 'viewer1', name: '数据员', role: 'viewer', status: 'normal', deleted: 0 }
 )
 stores.users.push(
   { _id: 'u1', auth_status: 'verified', status: 'normal', verified_at: at(now - 1 * DAY), last_active_at: at(now - 1 * DAY), deleted: 0 },

@@ -146,9 +146,9 @@ stores.users.push(
   { _id: 'u-5', name: '戊（软删）', auth_status: 'verified', status: 'normal', deleted: 1 }
 )
 stores.admins.push(
-  { _id: 'a-super', username: 'root', name: '超管', role: 'super', deleted: 0 },
-  { _id: 'a-aud', username: 'auditor1', name: '审核员', role: 'auditor', deleted: 0 },
-  { _id: 'a-view', username: 'viewer1', name: '数据员', role: 'viewer', deleted: 0 }
+  { _id: 'a-super', username: 'root', name: '超管', role: 'super', status: 'normal', deleted: 0 },
+  { _id: 'a-aud', username: 'auditor1', name: '审核员', role: 'auditor', status: 'normal', deleted: 0 },
+  { _id: 'a-view', username: 'viewer1', name: '数据员', role: 'viewer', status: 'normal', deleted: 0 }
 )
 // 预置 1 条已下架公告（状态筛选用）
 stores.announcements.push({

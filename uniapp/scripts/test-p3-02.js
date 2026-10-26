@@ -139,8 +139,8 @@ stores.users.push(
   { _id: 'u-3', openid: 'o-3', name: '赵一鸣', student_no: '20260004', auth_status: 'verified', status: 'normal', deleted: 0, created_at: at(now - 100000) },
 )
 stores.admins.push(
-  { _id: 'a-super', username: 'root', name: '超管', role: 'super', deleted: 0 },
-  { _id: 'a-view', username: 'viewer1', name: '数据员', role: 'viewer', deleted: 0 }
+  { _id: 'a-super', username: 'root', name: '超管', role: 'super', status: 'normal', deleted: 0 },
+  { _id: 'a-view', username: 'viewer1', name: '数据员', role: 'viewer', status: 'normal', deleted: 0 }
 )
 stores.club_members.push(
   { _id: 'm-1', club_id: 'club-a', user_id: 'u-mgr', role: 'president', status: 'active', deleted: 0 }

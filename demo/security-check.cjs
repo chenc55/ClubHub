@@ -8,6 +8,20 @@ function isolated(label, code) {
   assert.equal(result.status, 0, `${label}\n${result.stdout}\n${result.stderr}`)
   console.log(`PASS ${label}`)
 }
+isolated('administrator authorization rejects revoked accounts and viewer writes', `require('./demo/test-admin-authorization.cjs')`)
+isolated('required CI check rejects failed, skipped, cancelled or missing prerequisites', `
+  const assert=require('node:assert/strict');
+  const {spawnSync}=require('node:child_process');
+  const names=['build-and-browser','dependencies','secrets'];
+  const run=(results)=>spawnSync(process.execPath,['demo/require-ci-jobs.cjs'],{env:{...process.env,REQUIRED_JOB_RESULTS:JSON.stringify(results)},encoding:'utf8'}).status;
+  const success=()=>Object.fromEntries(names.map(name=>[name,{result:'success'}]));
+  assert.equal(run(success()),0);
+  for(const name of names) for(const state of ['failure','skipped','cancelled']) {
+    const results=success();results[name].result=state;assert.notEqual(run(results),0);
+  }
+  const missing=success();delete missing.dependencies;assert.notEqual(run(missing),0);
+  assert.notEqual(run({}),0);
+`)
 isolated('missing JWT configuration cannot sign or verify, including offline runtime', `
   const assert=require('node:assert/strict');
   delete process.env.CLUBHUB_JWT_SECRET;
