@@ -106,7 +106,7 @@ const usersCollection = {
 
 global.uniCloud = {
   database: () => ({
-    collection: () => usersCollection,
+    collection: (name) => name === 'admins' ? require('./helpers/admin-fixtures').adminCollection() : usersCollection,
     command: {
       and: (list) => ({ __and: list }),
       or: (list) => ({ __or: list }),

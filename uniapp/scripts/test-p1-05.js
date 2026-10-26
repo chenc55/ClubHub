@@ -28,7 +28,7 @@ function assert(name, cond, detail = '') {
 
 /* ---------- 集合 stub（等式 / in / neq / and / or / RegExp） ---------- */
 let seq = 0
-const stores = { appeals: [], users: [], whitelist: [], messages: [] }
+const stores = { admins: require('./helpers/admin-fixtures').createAdminFixtures(), appeals: [], users: [], whitelist: [], messages: [] }
 /** 唯一索引冲突模拟：users.student_no 写入时命中该值则抛错 */
 let usersStudentNoConflict = ''
 

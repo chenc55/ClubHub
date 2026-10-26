@@ -134,10 +134,27 @@ function extractToken(event) {
   return match ? match[1] : ''
 }
 
+/** 管理通道逐请求回查账号；禁用、删除和角色变更立即生效。 */
+async function authenticateAdmin(ctx, payload) {
+  if (!payload.adminId || typeof uniCloud === 'undefined' || typeof uniCloud.database !== 'function') {
+    return fail(ERROR_CODE.UNAUTHORIZED, '管理员会话已失效，请重新登录')
+  }
+  const result = await uniCloud.database().collection('admins')
+    .where({ _id: payload.adminId, deleted: 0 }).limit(1).get()
+  const admin = result.data && result.data[0]
+  if (!admin) return fail(ERROR_CODE.UNAUTHORIZED, '管理员账号不存在或已删除')
+  if (admin.status !== 'normal') return fail(ERROR_CODE.FORBIDDEN, '管理员账号已停用')
+  if (!['super', 'auditor', 'viewer'].includes(admin.role) || admin.role !== payload.role) {
+    return fail(ERROR_CODE.UNAUTHORIZED, '管理员权限已变更，请重新登录')
+  }
+  ctx.auth = { ...payload, role: admin.role, username: admin.username, name: admin.name || '' }
+  return true
+}
+
 /**
  * 鉴权中间件工厂
  * @param {'student'|'admin'} type token 通道
- * @returns {Function} (ctx) => void|Response —— 通过返回响应拦截，放行则返回 true
+ * @returns {Function} 管理通道返回 Promise，调用方必须 await（路由器自动等待）；学生通道保持同步。
  */
 function requireAuth(type) {
   const expectType = type || TOKEN_TYPES.STUDENT
@@ -153,6 +170,7 @@ function requireAuth(type) {
     if (payload.token_kind === 'refresh' || (expectType === TOKEN_TYPES.STUDENT && payload.token_kind !== 'access')) {
       return fail(ERROR_CODE.UNAUTHORIZED, '请使用有效的访问凭证')
     }
+    if (expectType === TOKEN_TYPES.ADMIN) return authenticateAdmin(ctx, payload)
     ctx.auth = payload
     return true
   }

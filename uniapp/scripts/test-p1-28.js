@@ -30,7 +30,7 @@ function assert(name, cond, detail = '') {
 
 /* ---------- 集合 stub ---------- */
 let seq = 0
-const stores = { clubs: [], activities: [], recruitments: [], appeals: [], club_posts: [], users: [] }
+const stores = { admins: require('./helpers/admin-fixtures').createAdminFixtures(), clubs: [], activities: [], recruitments: [], appeals: [], club_posts: [], users: [] }
 
 function matchCond(row, cond) {
   return Object.keys(cond).every((key) => {
@@ -147,7 +147,7 @@ seed('users', [{ name: 'u-5', auth_status: 'verified', deleted: 1 }])
 const fn = require('../uniCloud-aliyun/cloudfunctions/dashboard/index.js')
 
 function adminToken(role) {
-  return club.signToken({ type: club.TOKEN_TYPES.ADMIN, adminId: 'a-1', username: 'root', role, name: '超管' })
+  return club.signToken({ type: club.TOKEN_TYPES.ADMIN, adminId: { super: 'a-1', auditor: 'a-2', viewer: 'a-3' }[role], username: 'root', role, name: '超管' })
 }
 const studentToken = club.signToken({
   type: club.TOKEN_TYPES.STUDENT,

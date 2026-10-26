@@ -29,7 +29,7 @@ function assert(name, cond, detail = '') {
 
 /* ---------- 集合 stub（含 aggregate） ---------- */
 let seq = 0
-const stores = { sensitive_words: [] }
+const stores = { admins: require('./helpers/admin-fixtures').createAdminFixtures(), sensitive_words: [] }
 
 function matchCond(row, cond) {
   if (cond && cond.__and) return cond.__and.every((item) => matchCond(row, item))
@@ -143,7 +143,7 @@ seedWord('w-3', 'axb', 'review', 3)
 const fn = require('../uniCloud-aliyun/cloudfunctions/sensitive_words/index.js')
 
 function adminToken(role) {
-  return club.signToken({ type: club.TOKEN_TYPES.ADMIN, adminId: 'a-1', username: 'root', role, name: '超管' })
+  return club.signToken({ type: club.TOKEN_TYPES.ADMIN, adminId: { super: 'a-1', auditor: 'a-2', viewer: 'a-3' }[role], username: 'root', role, name: '超管' })
 }
 const studentToken = club.signToken({
   type: club.TOKEN_TYPES.STUDENT,

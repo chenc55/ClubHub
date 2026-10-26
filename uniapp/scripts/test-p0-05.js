@@ -9,6 +9,9 @@
 'use strict'
 const path = require('path')
 process.env.CLUBHUB_JWT_SECRET = 'clubhub-offline-test-fixture-only'
+const { createAdminFixtures, adminCollection } = require('./helpers/admin-fixtures')
+const testAdmin = { ...createAdminFixtures()[1], _id: 'test-admin' }
+global.uniCloud = { database: () => ({ collection: () => adminCollection([testAdmin]) }) }
 
 // 公共模块可解析：NODE_PATH 指向 cloudfunctions/common
 process.env.NODE_PATH = path.join(__dirname, '..', 'uniCloud-aliyun', 'cloudfunctions', 'common')

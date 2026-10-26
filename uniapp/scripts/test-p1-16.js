@@ -31,7 +31,7 @@ function assert(name, cond, detail = '') {
 
 /* ---------- 集合 stub ---------- */
 let seq = 0
-const stores = { recruitments: [], recruitment_registrations: [], club_members: [], clubs: [], categories: [], users: [], messages: [], sensitive_words: [] }
+const stores = { admins: require('./helpers/admin-fixtures').createAdminFixtures(), recruitments: [], recruitment_registrations: [], club_members: [], clubs: [], categories: [], users: [], messages: [], sensitive_words: [] }
 
 function matchCond(row, cond) {
   if (cond && cond.__and) return cond.__and.every((item) => matchCond(row, item))

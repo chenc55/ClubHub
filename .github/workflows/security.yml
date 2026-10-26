@@ -34,6 +34,8 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
   authentication:
+    needs: [build-and-browser, dependencies, secrets]
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -43,6 +45,10 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
+      - name: Enforce all security and build prerequisites
+        env:
+          REQUIRED_JOB_RESULTS: ${{ toJSON(needs) }}
+        run: node demo/require-ci-jobs.cjs
       - run: node demo/security-check.cjs
       - run: node demo/test-offline.cjs
   secrets:

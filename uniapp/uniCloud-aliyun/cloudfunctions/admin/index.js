@@ -434,7 +434,7 @@ exports.main = async (event) => {
   })
 
   // 白名单导入（P1-01 / ADM-01①）：管理端解析 Excel 后按 ≤1000 行/块提交
-  api.post('/whitelist/import', club.requireAuth(club.TOKEN_TYPES.ADMIN), async (ctx) => {
+  api.post('/whitelist/import', ...OPS_GUARD, async (ctx) => {
     const err = club.checkParams(ctx.body, {
       mode: { type: 'string', required: true, enum: [WHITELIST_MODES.APPEND, WHITELIST_MODES.FULL] },
       batch_no: { type: 'string', required: true, maxLen: 40 },

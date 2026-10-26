@@ -28,7 +28,7 @@ function assert(name, cond, detail = '') {
 
 /* ---------- 集合 stub ---------- */
 let seq = 0
-const stores = { clubs: [], club_members: [], categories: [], users: [], messages: [] }
+const stores = { admins: require('./helpers/admin-fixtures').createAdminFixtures(), clubs: [], club_members: [], categories: [], users: [], messages: [] }
 /** 竞态开关：模拟批量写入时唯一索引冲突 */
 let clubBatchConflict = false
 

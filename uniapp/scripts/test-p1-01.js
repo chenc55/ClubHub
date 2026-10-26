@@ -67,7 +67,7 @@ const whitelistCollection = {
 
 global.uniCloud = {
   database: () => ({
-    collection: () => whitelistCollection,
+    collection: (name) => name === 'admins' ? require('./helpers/admin-fixtures').adminCollection() : whitelistCollection,
     command: { in: (arr) => ({ __in: arr }) },
   }),
 }
