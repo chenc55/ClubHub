@@ -21,7 +21,7 @@
     "@dcloudio/types": "^3.4.8",
     "@dcloudio/uni-cli-shared": "3.0.0-5020420260813003",
     "@dcloudio/uni-stacktracey": "3.0.0-5020420260813003",
-    "@dcloudio/vite-plugin-uni": "3.0.0-5020420260813003",
+    "@dcloudio/vite-plugin-uni": "3.0.0-5020620260917001",
     "@vue/runtime-core": "3.5.44",
     "pngjs": "^7.0.0",
     "rollup": "4.65.0",
